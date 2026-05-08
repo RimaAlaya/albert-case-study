@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albert — Case Study | Rima Alaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2A4A;--orange:#E05A24;--blue:#2E6CA4;--light:#F2F4F8;--mid:#D0D8E8;--dark:#1E293B;--muted:#64748B;--green:#15803D;--white:#FFFFFF;--bg:#FAFAF8}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:400;background:var(--bg);color:var(--dark);line-height:1.7;font-size:17px}
+.hero{background:var(--navy);padding:100px 40px 80px;position:relative;overflow:hidden}
+.hero::before{content:"ALBERT";position:absolute;font-family:'Syne',sans-serif;font-weight:800;font-size:28vw;color:rgba(255,255,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-0.04em}
+.hero-inner{max-width:860px;margin:0 auto;position:relative}
+.hero-label{display:inline-block;background:var(--orange);color:#fff;font-family:'Syne',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:28px}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(42px,7vw,80px);color:#fff;line-height:1.0;letter-spacing:-0.03em;margin-bottom:12px}
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-size:19px;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:48px;max-width:560px;line-height:1.5}
+.hero-meta{display:flex;gap:40px;flex-wrap:wrap}
+.hero-meta-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:'Syne',sans-serif;font-weight:600;margin-bottom:4px}
+.hero-meta-value{font-size:15px;color:rgba(255,255,255,0.8);font-weight:400}
+.stats-bar{background:var(--orange);padding:0 40px}
+.stats-bar-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:28px 24px;border-right:1px solid rgba(255,255,255,0.2)}
+.stat-item:first-child{padding-left:0}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:#fff;line-height:1;margin-bottom:4px}
+.stat-l{font-size:13px;color:rgba(255,255,255,0.75);font-weight:300}
+.content{max-width:860px;margin:0 auto;padding:0 40px}
+section{padding:72px 0;border-bottom:1px solid var(--mid)}
+section:last-child{border-bottom:none}
+.section-label{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(26px,4vw,34px);color:var(--navy);line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px}
+h3{font-family:'Syne',sans-serif;font-weight:600;font-size:18px;color:var(--navy);margin-bottom:10px;margin-top:36px}
+p{color:#374151;line-height:1.75;margin-bottom:16px;font-size:17px}
+p:last-child{margin-bottom:0}
+.pull-quote{border-left:4px solid var(--orange);padding:20px 28px;background:var(--light);margin:36px 0;border-radius:0 8px 8px 0}
+.pull-quote p{font-size:20px;font-weight:300;color:var(--navy);line-height:1.55;font-style:italic;margin:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+.flow{margin:36px 0;display:flex;flex-direction:column;gap:0}
+.flow-item{display:flex;gap:20px;align-items:flex-start;position:relative}
+.flow-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:-4px;width:2px;background:var(--mid)}
+.flow-num{width:40px;height:40px;min-width:40px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;position:relative;z-index:1}
+.flow-body{padding:8px 0 28px}
+.flow-title{font-family:'Syne',sans-serif;font-weight:600;font-size:15px;color:var(--navy);margin-bottom:4px}
+.flow-desc{font-size:15px;color:var(--muted);line-height:1.6}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:28px}
+.tech-card{background:var(--white);border:1px solid var(--mid);border-radius:8px;padding:16px 18px}
+.tech-card-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;margin-bottom:6px}
+.tech-card-value{font-size:15px;font-weight:500;color:var(--navy)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:32px}
+.result-card{background:var(--navy);border-radius:10px;padding:24px 22px}
+.result-card-n{font-family:'Syne',sans-serif;font-weight:800;font-size:40px;color:var(--orange);line-height:1;margin-bottom:8px}
+.result-card-l{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5}
+.checklist{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:#374151;line-height:1.5}
+.check-dot{min-width:20px;height:20px;background:var(--orange);border-radius:50%;margin-top:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.check-dot svg{width:11px;height:11px}
+.nda-badge{display:inline-flex;align-items:center;gap:6px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:4px;padding:6px 12px;font-size:13px;color:#9A3412;font-weight:500;margin-bottom:32px}
+.footer{background:var(--navy);padding:48px 40px;text-align:center}
+.footer p{color:rgba(255,255,255,0.4);font-size:14px;margin:0}
+.footer strong{color:rgba(255,255,255,0.8);font-weight:500}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp 0.6s ease both}
+.hero-inner>*:nth-child(1){animation-delay:0.05s}
+.hero-inner>*:nth-child(2){animation-delay:0.15s}
+.hero-inner>*:nth-child(3){animation-delay:0.25s}
+.hero-inner>*:nth-child(4){animation-delay:0.35s}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Case Study &mdash; AI Engineering</div>
+    <h1>Albert<span>.</span></h1>
+    <p class="hero-sub">A Slack-native AI agent that researches, writes, validates and publishes SEO blog articles across 27 client websites &mdash; fully automated, bilingual, production-ready.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="hero-meta-label">Client</div><div class="hero-meta-value">Digital Agency &mdash; NDA</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Role</div><div class="hero-meta-value">Solo AI Engineer</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Timeline</div><div class="hero-meta-value">3 weeks &mdash; May 2026</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Status</div><div class="hero-meta-value">Live in production</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item"><div class="stat-n">27</div><div class="stat-l">client sites connected</div></div>
+    <div class="stat-item"><div class="stat-n">19</div><div class="stat-l">SEO rules validated in code</div></div>
+    <div class="stat-item"><div class="stat-n">~8 min</div><div class="stat-l">from Slack to WP draft</div></div>
+    <div class="stat-item"><div class="stat-n">FR+EN</div><div class="stat-l">native bilingual generation</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <section>
+    <div class="section-label">The Problem</div>
+    <h2>A content team writing for 27 clients &mdash; manually</h2>
+    <p>A digital marketing agency managed SEO content for 27 client websites across multiple industries: solariums, electronics repair, construction, locksmith services, automotive, cleaning. Each client required articles in their own language (French or English), their own tone, about their own products.</p>
+    <p>Writing was done by hand. Research, draft, manual SEO check, WordPress formatting, Elementor layout, Yoast meta &mdash; repeat for every article, every client, every month. At 2 articles per month across 27 clients, this was hundreds of hours of rule-based, repeatable work.</p>
+    <div class="pull-quote"><p>"The bottleneck wasn't creativity. It was the time it took to run the same SEO checklist, in two languages, for dozens of clients, every single month."</p></div>
+    <div class="two-col">
+      <div>
+        <h3>What was slowing them down</h3>
+        <ul class="checklist">
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Manual topic research per client, per article</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>SEO checked by eye &mdash; inconsistent quality</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>WordPress layout built manually every time</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>No system to prevent duplicate topics</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Bilingual content meant double the work</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What they needed</h3>
+        <ul class="checklist">
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>One tool handling all 27 clients</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Automated SEO validation before publishing</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Direct WP publishing with full layout</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Human editorial control kept &mdash; no auto-publish</li>
+          <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Zero learning curve for the team</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">The Solution</div>
+    <h2>Albert &mdash; an agent that lives in Slack</h2>
+    <div class="nda-badge">&#9888; Client name anonymized under NDA &mdash; architecture and code are original work</div>
+    <p>I built Albert: a Python agent the content team talks to entirely through Slack. No interface to learn, no dashboard to open, no file to upload. The editor types <code>@Albert</code>, makes five decisions, and eight minutes later a fully formatted WordPress draft is ready for review.</p>
+    <p>Albert handles everything in between: scraping the client's site for real internal links, querying Google for actual search intent, checking competitor blogs for content gaps, writing a 1,200&ndash;1,950 word article in the client's exact voice, running 19 SEO checks, correcting what fails, building the Elementor layout, injecting Yoast meta, and posting the draft to WordPress.</p>
+    <div class="flow">
+      <div class="flow-item"><div class="flow-num">1</div><div class="flow-body"><div class="flow-title">@Albert in any Slack channel</div><div class="flow-desc">Responds with a client dropdown. Nothing to install, no login required.</div></div></div>
+      <div class="flow-item"><div class="flow-num">2</div><div class="flow-body"><div class="flow-title">Select client + product</div><div class="flow-desc">Albert loads the client profile: tone, language, products, region, seasonal context.</div></div></div>
+      <div class="flow-item"><div class="flow-num">3</div><div class="flow-body"><div class="flow-title">Choose a mode</div><div class="flow-desc">Suggestions (Albert researches and proposes 3 topics) &bull; Custom topic (editor provides brief) &bull; Comparison (two-product article).</div></div></div>
+      <div class="flow-item"><div class="flow-num">4</div><div class="flow-body"><div class="flow-title">Wait ~8 minutes</div><div class="flow-desc">Research &rarr; generation &rarr; 19-rule validation &rarr; auto-correction &rarr; WordPress publish. Albert posts the draft link in Slack when ready.</div></div></div>
+      <div class="flow-item"><div class="flow-num">5</div><div class="flow-body"><div class="flow-title">Review and type "approved"</div><div class="flow-desc">Editor reviews the WP draft. One word in Slack logs the approval, updates the dashboard, and caches the topic so it's never repeated.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Engineering</div>
+    <h2>What I built</h2>
+    <p>The system is a modular Python pipeline &mdash; 12 files, each with a single responsibility. The Slack layer has zero business logic. The pipeline has zero Slack imports. This separation means the same agent can be triggered from a scheduler, a CLI, or any future interface without touching the core logic.</p>
+    <h3>The SEO validator</h3>
+    <p>19 rules measured in pure Python &mdash; word count, keyword density, H1/H2 presence, meta description length, internal links, image placeholders, FAQ count, em-dashes, and more. The model never self-validates. If the article fails, a surgical correction engine applies fixes in order of blast radius (metadata first, then insertions, then prose rewrites) and re-validates. Max 2 rounds. Remaining failures are surfaced to the editor &mdash; never silently swallowed.</p>
+    <h3>The research engine</h3>
+    <p>Before suggesting topics, Albert runs 4 parallel scrapers via Playwright: the client's WordPress blog (to prevent duplicate topics), the client's live navigation (for real internal URLs &mdash; never invented), Google's "People Also Ask" (for real search intent), and competitor blogs (for content gap analysis). All 4 run concurrently &mdash; total research time is bounded by the slowest single call.</p>
+    <h3>The WordPress publisher</h3>
+    <p>Every draft lands in WordPress with a complete Elementor layout &mdash; not raw HTML. The editor sees the article exactly as it will look live. Yoast meta description is pre-filled. JSON-LD schemas (BlogPosting, FAQPage, HowTo) are injected. A CTA button links to the client's contact page.</p>
+    <h3>Per-client configuration &mdash; zero hallucination</h3>
+    <p>Each of the 27 clients has a JSON profile: name, industry, language, region, tone, vocabulary to use and avoid, products, seasonal calendar, WordPress credentials. Albert can only write facts that exist in this file. No product, URL, or claim is ever invented.</p>
+    <div class="tech-grid">
+      <div class="tech-card"><div class="tech-card-label">LLM</div><div class="tech-card-value">Gemini 2.5 Pro (Vertex AI)</div></div>
+      <div class="tech-card"><div class="tech-card-label">Orchestration</div><div class="tech-card-value">Python 3.12</div></div>
+      <div class="tech-card"><div class="tech-card-label">Slack interface</div><div class="tech-card-value">slack-bolt + Flask 3.0</div></div>
+      <div class="tech-card"><div class="tech-card-label">Web scraping</div><div class="tech-card-value">Playwright + Chromium</div></div>
+      <div class="tech-card"><div class="tech-card-label">CMS</div><div class="tech-card-value">WordPress REST API v2</div></div>
+      <div class="tech-card"><div class="tech-card-label">Layout</div><div class="tech-card-value">Elementor JSON via WP meta</div></div>
+      <div class="tech-card"><div class="tech-card-label">Deployment</div><div class="tech-card-value">Docker Compose</div></div>
+      <div class="tech-card"><div class="tech-card-label">Tunnel</div><div class="tech-card-value">Cloudflare Tunnel</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Results</div>
+    <h2>Delivered in 3 weeks, live on day 15</h2>
+    <p>Albert went from first commit to production in 15 working days. All 27 client sites were configured and tested end-to-end. The content team was operational with zero training &mdash; they already knew Slack.</p>
+    <div class="result-grid">
+      <div class="result-card"><div class="result-card-n">27</div><div class="result-card-l">client sites live &mdash; zero code changes to add a new one</div></div>
+      <div class="result-card"><div class="result-card-n">19/19</div><div class="result-card-l">SEO rules passing on most articles before human review</div></div>
+      <div class="result-card"><div class="result-card-n">~8 min</div><div class="result-card-l">end-to-end from Slack to WordPress draft</div></div>
+      <div class="result-card"><div class="result-card-n">0</div><div class="result-card-l">duplicate topics &mdash; history checked on every run</div></div>
+    </div>
+    <h3 style="margin-top:40px">What was delivered</h3>
+    <ul class="checklist" style="margin-top:16px">
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Bilingual agent (FR/EN) generating SEO articles for all 27 clients</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>WordPress auto-publishing with Elementor, Yoast SEO, and JSON-LD schemas</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>19-rule SEO validator with surgical auto-correction and regression guard</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Real-time research engine: Google PAA + competitor gap analysis + nav scraping</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Duplicate topic prevention across all clients in both languages</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>HTML approval dashboard with SEO scores, statuses, and WordPress links</li>
+      <li><div class="check-dot"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 9 2 6"/></svg></div>Docker deployment with Cloudflare Tunnel &mdash; reproducible, zero-downtime</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-label">Reflection</div>
+    <h2>What this project taught me</h2>
+    <div class="two-col">
+      <div>
+        <h3>Separate the model from the logic</h3>
+        <p>The biggest architectural decision was making the LLM call provider-agnostic from day one. The model is called in exactly one function. Everything else &mdash; validation, correction, publishing &mdash; is deterministic Python. This made the system reliable and testable independent of model behavior.</p>
+        <h3>Never trust the model to validate itself</h3>
+        <p>All 19 SEO rules are measured in code, not asked of the model. This made every failure deterministic, reproducible, and fixable without touching the prompt.</p>
+      </div>
+      <div>
+        <h3>The interface is a product decision</h3>
+        <p>Choosing Slack as the interface meant zero onboarding for the content team. They didn't need to learn a new tool. Keeping humans in their existing environment was as important as the technical architecture.</p>
+        <h3>Config is the hallucination prevention system</h3>
+        <p>The JSON profile per client isn't just configuration &mdash; it's the safety layer. By defining a strict boundary of what Albert can say about each client, factual accuracy became a structural guarantee, not a prompt engineering hope.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p><strong>Rima Alaya</strong> &mdash; AI Engineer &nbsp;&middot;&nbsp; May 2026 &nbsp;&middot;&nbsp; Client anonymized under NDA</p>
+</div>
+
+</body>
+</html>
